@@ -6,26 +6,80 @@ import Button from '../funcComponents/ui/Button';
 import Card from '../funcComponents/ui/Card';
 import InputBox from '../funcComponents/ui/InputBox';
 import Esame from '../funcComponents/ui/Esame';
-import { useState } from 'react';
+import { useState, useEffect } from 'react'; //importo per utilizzare gli stati
 
 function Home() {
-  const [examList, setExamList] = useState([]);
-  const [name, setName] = useState([]);
-  const [vote, setVote] = useState([]);
-  const [date, setDate] = useState([]);
-  const [exam, setExam] = useState([]);
+  {/* per configurazione stati*/ }
+  const [state, setState] = useState(
 
-  function setExameFunc(){
-    
-   const exam = {
-      examName: name,
-      vote: vote,
-      date: date
+    {       // exam diventa un oggetto, io sto dichiarando tutte le variabili state e le imposto vuote perchè poi le prendo da ogni funzione
+      exam: {
+        examName: '',
+        examVote: '',
+        examDate: ''
+      },
+      //null? se non ce nessun items in array crea comunque array
+      examList: localStorage.getItem("examList") == null ? [] : JSON.parse(localStorage.getItem("examList")) //collegamento array con local storage
     }
-    console.log(exam);
-    /* setExam(exam);*/  
+  )
+  useEffect(
+    () => {
+      localStorage.setItem("examList", JSON.stringify(state.examList));
+    }, [state.examList]
+  )
+
+
+
+  //funzioni per settare gli stati del Button
+  function getSaveData() {
+    console.log('esame registrato')
+
+
+    setState(
+      {
+        ...state,
+        examList: [...state.examList, state.exam]
+      }
+    )
   }
- 
+  //funzioni per settare gli stati delle inputBox
+  function getNameExam(nameExam) {
+    console.log('esame inserito', nameExam)
+    setState({
+      ...state,
+      exam: {
+        ...state.exam,
+        examName: nameExam
+      }
+    })
+
+  }
+
+  function getValueVote(voteExam) {
+    console.log('voto inserito', voteExam)
+    setState({
+      ...state,
+      exam: {
+        ...state.exam,
+        examVote: voteExam
+      }
+    })
+  }
+
+  function getDate(dateExam) {
+    console.log('data inserita', dateExam)
+    setState({
+      ...state,
+      exam: {
+        ...state.exam,
+        examDate: dateExam
+      }
+    })
+
+
+  }
+  {/*fine configurazione stati */ }
+
   return (
     <div className="Home">
       <Header />
@@ -34,17 +88,33 @@ function Home() {
 
         <Card
           label={"Aggiungi un'esame al libretto"}
-          /* functionButton={saveDate} */
-          functionFirstInput={setName}
-          functionSecondInput={setVote}
-          functionThirdInput={setDate}
-          functionSubmit={setExameFunc}
+          functionButton={getSaveData}
+          functionFirstInput={getNameExam}
+          functionSecondInput={getValueVote}
+          functionThirdInput={getDate}
         />
 
       </div>
+      <p>
+
+Lista Esami:
+{
+  state.examList.map(
+    (exam, i)=>{
+      return(
+        <div key={i}>
+          {exam.examName}
+          {exam.examVote}
+          {exam.examDate}
+        </div>
+      )
+    }
+  )
+}
+</p>
       <Esame />
       <Footer
-       />
+      />
     </div>
   );
 }

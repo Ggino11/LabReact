@@ -41,9 +41,7 @@ function Card(props) {
                     <Button
                         label={'Salva'}
                         classCss={'Button'}
-                        setExamFunc={
-                            props.setExamFunc
-                        }
+                        callbackButton={props.functionButton}
                     />
                 </div>
             </div>
