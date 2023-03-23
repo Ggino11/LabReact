@@ -1,0 +1,17 @@
+.container {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    /*centra i figli orizzontalmente*/
+    align-items: center;
+    /*centra i figli verticalmente*/
+
+}
+
+@media (max-width: 768px) {
+
+    /* schermi di dimensioni inferiori o uguali a 768px */
+    .container {
+        flex-direction: column;
+    }
+}
