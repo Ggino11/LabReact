@@ -2,7 +2,7 @@
     box-sizing: border-box;
     width: 100%;
     display: flex;
-    justify-content: flex-start;
+    justify-content: center;
     align-items: baseline;
     padding: 2em;
     margin-bottom: 3em;

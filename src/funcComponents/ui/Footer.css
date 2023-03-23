@@ -1,20 +1,20 @@
 .Footer {
-    background-color: #f7f7f7;
-    padding: 2em;
-    display: flex;
-    justify-content: center;
-    align-items: baseline;
-    width:100%;
-    color: #333;
-    box-sizing: border-box;
-  }
+  background-color: #f7f7f7;
+  padding: 2em;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  color: #333;
+  box-sizing: border-box;
+}
 
-  .Footer .footerLogo{
-    width:150px;
-    height: 70px;
-  }
+.Footer .footerLogo {
+  width: 150px;
+  height: 70px;
+}
 
-  p {
-    display: inline-flex;
-text-align: center;  }
-
+p {
+  display: block;
+  text-align: center;
+}

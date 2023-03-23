@@ -5,7 +5,8 @@ import Button from './Button';
 import InputBox from './InputBox';
 
 function Card(props) {
-    function save(){
+    
+    function save() {
         console.log()
     }
     return (
@@ -13,35 +14,44 @@ function Card(props) {
         <form className="card">
             <div>
                 <h3>{props.label}</h3><br></br>
-                <InputBox
-                    inputType={'text'}
-                    inputPlaceholder={"inserisci il nome esame"}
-                    inputMaxLength={99}
-                />
+                <div className='inputContainer'>
+                    <InputBox
+                        inputType={'text'}
+                        inputPlaceholder={"inserisci il nome esame"}
+                        inputMaxLength={99}
+                        callbackInput={props.functionFirstInput}
+                    />
 
-                <br></br>
+                    <br></br>
 
-                <InputBox
-                    inputType={'number'}
-                    inputPlaceholder={'inserisci Voto'}
-                    inputMaxLength={2}
-                />
+                    <InputBox
+                        inputType={'number'}
+                        inputPlaceholder={'inserisci Voto'}
+                        inputMaxLength={2}
+                        callbackInput={props.functionSecondInput}
+                    />
 
-                <br></br>
-                <InputBox
-                    inputType={'date'}
-                    inputPlaceholder={''}
-                    inputMaxLength={2}
-                />
-                <Button
-                    label={'Salva'}
-                    classCss={'Button'} 
-                    callbackButton ={save}/>
+                    <br></br>
+                    <InputBox
+                        inputType={'date'}
+                        inputPlaceholder={''}
+                        inputMaxLength={2}
+                        callbackInput={props.functionThirdInput}
+                    />
+                    <Button
+                        label={'Salva'}
+                        classCss={'Button'}
+                        setExamFunc={
+                            props.setExamFunc
+                        }
+                    />
+                </div>
             </div>
         </form>
 
     );
 }
+
 Card.defaultProps = {
     label: 'card'
 }
@@ -49,6 +59,10 @@ Card.defaultProps = {
 Card.propTypes = {
     label: PropTypes.string,
     classCss: PropTypes.string,
+    functionButton: PropTypes.func,
+    functionFirstInput: PropTypes.func,
+    functionSecondInput: PropTypes.func,
+    functionThirdInput: PropTypes.func
 }
 
 export default Card;

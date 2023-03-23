@@ -16,6 +16,7 @@ function InputBox(props) {
             placeholder={props.inputPlaceholder}
             maxLength={props.inputMaxLength}
             className="input"
+
         />
     )
 

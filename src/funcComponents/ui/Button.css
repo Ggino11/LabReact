@@ -1,6 +1,6 @@
 .Button {
     position: relative;
-    background-color: rgb(230, 34, 77);
+    background-color: #c4302f;
     border-radius: 5px;
     box-shadow: rgb(121, 18, 55) 0px 4px 0px 0px;
     padding: 15px;
@@ -19,7 +19,7 @@
   
   .Button::before {
     content: "";
-    background-color: rgb(248, 50, 93);
+    background-color: rgb(209, 63, 63);
     width: 0;
     height: 100%;
     position: absolute;

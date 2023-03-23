@@ -1,0 +1,31 @@
+.exam{
+    width: 190px;
+    height: 100%;
+    margin: 0 auto;
+    background-color: #F8FBFE;
+    border-radius: 8px;
+    z-index: 1;
+    background: rgb(236, 236, 236);
+   box-shadow: rgba(0, 0, 0, 0.4) 0px 2px 4px, rgba(0, 0, 0, 0.3) 0px 7px 13px -3px, rgba(0, 0, 0, 0.2) 0px -3px 0px inset;
+}
+.exam h4{
+    text-align: center;
+    padding: 0.1em;
+    margin: 0.25em;
+    color: white;
+}
+.exam hr{
+    width: 70%;
+}
+
+.title{
+    background-color: #c4302f;
+    border-top-right-radius: 8px;
+    border-top-left-radius: 8px;
+
+}
+
+.element{
+    padding-bottom: 0.5px;
+    margin-bottom:1em;
+}

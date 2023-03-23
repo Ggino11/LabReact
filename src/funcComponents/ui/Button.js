@@ -7,7 +7,7 @@ function Button(props) {
 
     function clickButton(event) {
         //console.log('CLICK', event)
-        props.callbackButton()
+        props.setExamFunc()
     }
 
     return (
