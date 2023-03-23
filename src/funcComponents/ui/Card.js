@@ -7,7 +7,6 @@ import InputBox from './InputBox';
 function Card(props) {
     function save(){
         console.log()
-        
     }
     return (
 
