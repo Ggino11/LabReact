@@ -95,26 +95,14 @@ function Home() {
         />
 
       </div>
-      <p>
 
-Lista Esami:
-{
-  state.examList.map(
-    (exam, i)=>{
-      return(
-        <div key={i}>
-          {exam.examName}
-          {exam.examVote}
-          {exam.examDate}
-        </div>
-      )
-    }
-  )
-}
-</p>
-      <Esame />
-      <Footer
-      />
+      <p>Lista Esami:</p>
+        {state.examList.map((exam, index) => (
+          <Esame key={index} exam={exam} />
+        ))}
+        <Esame />
+        <Footer
+        />
     </div>
   );
 }

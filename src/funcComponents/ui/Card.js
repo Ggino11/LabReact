@@ -5,10 +5,6 @@ import Button from './Button';
 import InputBox from './InputBox';
 
 function Card(props) {
-    
-    function save() {
-        console.log()
-    }
     return (
 
         <form className="card">
