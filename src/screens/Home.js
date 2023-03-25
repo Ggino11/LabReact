@@ -5,6 +5,7 @@ import Footer from '../funcComponents/ui/Footer';
 import Card from '../funcComponents/ui/Card';
 import Esame from '../funcComponents/ui/Esame';
 import { useState, useEffect } from 'react'; //importo per utilizzare gli stati
+import { bool } from 'prop-types';
 
 function Home() {
   {/* per configurazione stati*/ }
@@ -31,8 +32,6 @@ function Home() {
   //funzioni per settare gli stati del Button
   function getSaveData() {
     console.log('esame registrato')
-
-
     setState(
       {
         ...state,
@@ -67,13 +66,21 @@ function Home() {
 
   function getDate(dateExam) {
     console.log('data inserita', dateExam)
+    let x = true
+    const now = new Date();
+    const selectedDate = new Date(dateExam);
+    if (selectedDate > now) {
+      alert('La data deve essere minore o uguale alla data attuale!');
+      return false;
+    } 
+    if(x){
     setState({
       ...state,
       exam: {
         ...state.exam,
         examDate: dateExam
       }
-    })
+    })}
   }
   function deleteExam() {
     setState(
