@@ -39,6 +39,11 @@ function Card(props) {
                         classCss={'Button'}
                         callbackButton={props.functionButton}
                     />
+                    <Button
+                        label={'Cancella'}
+                        classCss={'Button'}
+                        callbackButton={props.functionButton2}
+                    />
                 </div>
             </div>
         </form>

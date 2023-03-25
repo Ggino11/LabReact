@@ -1,15 +1,23 @@
 .container {
     display: flex;
-    flex-direction: column;
-    justify-content: space-between;
+    flex-direction: row;
+    justify-content: center;
     align-items: center;
 }
 
+.listaEsami {
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: row;
+    justify-content: center;
+    align-items: auto;
+    align-content: start
+}
 
-/* @media (max-width: 768px) {
+ @media (max-width: 768px) {
 
-    /* schermi di dimensioni inferiori o uguali a 768px 
+    /* schermi di dimensioni inferiori o uguali a 768px */
     .container {
         flex-direction: column;
     }
-} */
+} 

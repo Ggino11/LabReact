@@ -1,7 +1,8 @@
 .exam{
+    flex: 0 0 auto;
     width: 190px;
     height: 100%;
-    margin: 0 auto;
+    margin: 10px ;
     background-color: #F8FBFE;
     border-radius: 8px;
     z-index: 1;
@@ -19,9 +20,10 @@
 }
 
 .title{
-    background-color: #c4302f;
     border-top-right-radius: 8px;
     border-top-left-radius: 8px;
+    text-transform: uppercase;
+    padding: 1px;
 
 }
 

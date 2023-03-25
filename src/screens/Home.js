@@ -2,9 +2,7 @@
 import '../assets/css/Home.css';
 import Header from '../funcComponents/ui/Header';
 import Footer from '../funcComponents/ui/Footer';
-import Button from '../funcComponents/ui/Button';
 import Card from '../funcComponents/ui/Card';
-import InputBox from '../funcComponents/ui/InputBox';
 import Esame from '../funcComponents/ui/Esame';
 import { useState, useEffect } from 'react'; //importo per utilizzare gli stati
 
@@ -66,6 +64,7 @@ function Home() {
     })
   }
 
+
   function getDate(dateExam) {
     console.log('data inserita', dateExam)
     setState({
@@ -75,9 +74,18 @@ function Home() {
         examDate: dateExam
       }
     })
-
-
   }
+  function deleteExam() {
+    setState(
+      {
+        ...state,
+        examList: []
+      }
+    )
+
+    localStorage.removeItem("examList")
+  }
+
   {/*fine configurazione stati */ }
 
   return (
@@ -85,10 +93,18 @@ function Home() {
       <Header />
 
       <div className='container'>
-
         <Card
           label={"Aggiungi un'esame al libretto"}
           functionButton={getSaveData}
+          functionButton2={deleteExam}
+          functionFirstInput={getNameExam}
+          functionSecondInput={getValueVote}
+          functionThirdInput={getDate}
+        />
+          <Card
+          label={"Aggiungi un'esame al libretto"}
+          functionButton={getSaveData}
+          functionButton2={deleteExam}
           functionFirstInput={getNameExam}
           functionSecondInput={getValueVote}
           functionThirdInput={getDate}
@@ -96,13 +112,22 @@ function Home() {
 
       </div>
 
-      <p>Lista Esami:</p>
-        {state.examList.map((exam, index) => (
-          <Esame key={index} exam={exam} />
-        ))}
-        <Esame />
-        <Footer
-        />
+      {state.examList.length > 0 && (
+        <section id="lista">
+          <div>
+            <h3 style={{ textAlign: 'center' }}>Lista Esami:</h3>
+          </div>
+          <div className='listaEsami'>
+            {state.examList.map((exam, index) => (
+              <Esame key={index} exam={exam} />
+            ))}
+          </div>
+        </section>
+      )}
+
+      {/* controllo lunghezza dell'array examList nello stato state è maggiore di zero, ovvero se sono presenti
+        esami se no eveito di stampare a video il componente vuoto  */}
+      <Footer />
     </div>
   );
 }
