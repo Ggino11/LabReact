@@ -1,0 +1,18 @@
+body {
+    background-color:#F2EDDB;
+}
+
+.landingPage{
+  background-color: transparent;
+  width: 450px;
+  height: 554px;
+  display: flex;
+  place-content: center;
+  place-items: center;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+  border-radius: 20px;
+  flex-direction: row;
+  margin: 2em;
+}

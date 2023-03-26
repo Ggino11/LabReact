@@ -1,4 +1,4 @@
-.card {
+.cruscotto {
   width: 450px;
   height: 554px;
   display: flex;
@@ -11,31 +11,27 @@
   background: rgb(236, 236, 236);
   box-shadow: rgba(0, 0, 0, 0.4) 0px 2px 4px, rgba(0, 0, 0, 0.3) 0px 7px 13px -3px, rgba(0, 0, 0, 0.2) 0px -3px 0px inset;
 }
-
-.card h3 {
-  z-index: 1;
-  color: black;
-  font-size: 2em;
-  text-align: center;
-  margin: 0.5em;
-}
-
-.inputContainer{
+.cruscotto h3 {
+    z-index: 1;
+    color: black;
+    font-size: 2em;
+    text-align: center;
+    margin: 0.5em;
+  }
+.text {
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
-
 }
-
 @media (max-width: 768px) {
-  .card {
-    width: 250px;
-    height: 450px;
+    .cruscotto {
+      width: 250px;
+      height: 450px;
+    }
+  
+    .cruscotto h3 {
+      font-size: 1.5em;
+      text-align: center;
+    }
   }
-
-  .card h3 {
-    font-size: 1.5em;
-    text-align: center;
-  }
-}

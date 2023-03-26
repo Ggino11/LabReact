@@ -5,10 +5,11 @@ import Footer from '../funcComponents/ui/Footer';
 import Card from '../funcComponents/ui/Card';
 import Esame from '../funcComponents/ui/Esame';
 import { useState, useEffect } from 'react'; //importo per utilizzare gli stati
-import { bool } from 'prop-types';
+
+import Cruscotto from '../funcComponents/Cruscotto';
 
 function Home() {
-  {/* per configurazione stati*/ }
+
   const [state, setState] = useState(
 
     {       // exam diventa un oggetto, io sto dichiarando tutte le variabili state e le imposto vuote perchè poi le prendo da ogni funzione
@@ -31,7 +32,32 @@ function Home() {
 
   //funzioni per settare gli stati del Button
   function getSaveData() {
-    console.log('esame registrato')
+    //console.log('esame registrato')
+    const { exam, examList } = state;
+
+    // Controllo se la data inserita è maggiore del giorno attuale 
+    const now = new Date();
+    const selectedDate = new Date(exam.examDate);
+    if (selectedDate > now) {
+      alert('La data deve essere minore o uguale alla data attuale!');
+      return;
+    }
+
+    // Controllo se il voto è un numero tra 0 e 31
+    const vote = parseInt(exam.examVote);
+    if (isNaN(vote) || vote < 0 || vote > 31) {
+      alert('Il voto deve essere un numero tra 0 e 31!');
+      return;
+    }
+
+    // Controllo se il nome esiste già nella lista esami
+    const examName = exam.examName.trim().toLowerCase();
+    const existingExam = examList.find(item => item.examName.trim().toLowerCase() === examName);
+    if (existingExam) {
+      alert('Esame già presente nella lista!');
+      return;
+    }
+    // Se tutte le condizioni sono verificate, aggiungo l'esame alla lista
     setState(
       {
         ...state,
@@ -72,15 +98,16 @@ function Home() {
     if (selectedDate > now) {
       alert('La data deve essere minore o uguale alla data attuale!');
       return false;
-    } 
-    if(x){
-    setState({
-      ...state,
-      exam: {
-        ...state.exam,
-        examDate: dateExam
-      }
-    })}
+    }
+    if (x) {
+      setState({
+        ...state,
+        exam: {
+          ...state.exam,
+          examDate: dateExam
+        }
+      })
+    }
   }
   function deleteExam() {
     setState(
@@ -108,13 +135,7 @@ function Home() {
           functionSecondInput={getValueVote}
           functionThirdInput={getDate}
         />
-          <Card
-          label={"Aggiungi un'esame al libretto"}
-          functionButton={getSaveData}
-          functionButton2={deleteExam}
-          functionFirstInput={getNameExam}
-          functionSecondInput={getValueVote}
-          functionThirdInput={getDate}
+        <Cruscotto
         />
 
       </div>
