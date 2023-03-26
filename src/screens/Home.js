@@ -91,15 +91,7 @@ function Home() {
 
 
   function getDate(dateExam) {
-    console.log('data inserita', dateExam)
-    let x = true
-    const now = new Date();
-    const selectedDate = new Date(dateExam);
-    if (selectedDate > now) {
-      alert('La data deve essere minore o uguale alla data attuale!');
-      return false;
-    }
-    if (x) {
+   
       setState({
         ...state,
         exam: {
@@ -107,7 +99,6 @@ function Home() {
           examDate: dateExam
         }
       })
-    }
   }
   function deleteExam() {
     setState(
