@@ -7,10 +7,10 @@ function Routing() {
     return (
         <Routes>
             <Route path="/" element={<LandingPage />} />
-            <Route path="/home" element={<Home/>} />
+            <Route path="/Home" element={<Home />} />
         </Routes>
     )
 }
 
 
-export default Routing
+export default Routing;

@@ -1,7 +1,7 @@
 import React from "react";
 import './Header.css';
 import unitoLogo from '../../assets/images/unitoLogo.svg';
-import PropTypes from 'prop-types';
+
 
 function Header() {
     return (

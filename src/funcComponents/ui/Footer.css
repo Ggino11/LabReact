@@ -1,5 +1,5 @@
 .Footer {
-  background-color: #f7f7f7;
+  background-color: transparent;
   padding: 2em;
   display: flex;
   justify-content: center;
@@ -14,7 +14,3 @@
   height: 70px;
 }
 
-p {
-  display: block;
-  text-align: center;
-}

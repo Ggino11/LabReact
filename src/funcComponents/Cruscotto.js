@@ -3,54 +3,36 @@ import './Cruscotto.css';
 import PropTypes from 'prop-types';
 import { useState, useEffect } from 'react';
 
-function Cruscotto({ examList }) {
+function Cruscotto() {
+    const exams = JSON.parse(localStorage.getItem("examList"));
+    let totalVote = 0;
+    let numExams = exams.length; 
+    let passedExams = 0;
+    let failedExams =  0;
+    let honors = 0; 
+    let averageVote = 0;
+    exams.map(exam => {
+        totalVote += parseInt(exam.examVote) === 31 ? 30 : parseInt(exam.examVote);
+        honors += exam.examVote == 31 ? 1 : 0;
+        failedExams += exam.examVote < 18 ? 1 : 0;
+        passedExams += exam.examVote >18 ? 1 :0; 
 
-   /*  const [media, setMedia] = useState(0);
-    const [esamiSostenuti, setEsamiSostenuti] = useState(0);
-    const [esamiSuperati, setEsamiSuperati] = useState(0);
-    const [numeroBocciature, setNumeroBocciature] = useState(0);
-    const [numeroLodi, setNumeroLodi] = useState(0);
-
-    useEffect(() => {
-        if (Array.isArray(examList)) {
-            let totalVote = 0;
-            let totalExams = 0;
-            let passedExams = 0;
-            let failedExams = 0;
-            let honors = 0;
-
-            examList.forEach((exam) => {
-                totalVote += exam.examVote;
-                totalExams++;
-                if (exam.examVote >= 18) {
-                    passedExams++;
-                    if (exam.examVote >= 30) {
-                        honors++;
-                    }
-                } else {
-                    failedExams++;
-                }
-            });
-
-            setMedia(totalVote / totalExams || 0);
-            setEsamiSostenuti(totalExams);
-            setEsamiSuperati(passedExams);
-            setNumeroBocciature(failedExams);
-            setNumeroLodi(honors);
-        }
-    }, [examList]);
- */
+    })
+    
+    averageVote = totalVote / numExams;
+    
+  
     return (
 
         <div className="cruscotto">
             <div>
                 <h3>Cruscotto</h3>
                 <div className='text'>
-                    <p>Media esami: </p>
-                    <p>Esami sostenuti: </p>
-                    <p>Numero esami superati: </p>
-                    <p>Numero bocciature: </p>
-                    <p>Numero Lodi: </p>
+                    <p>Media esami: {averageVote} </p>
+                    <p>Esami sostenuti: {numExams}</p>
+                    <p>Numero esami superati: {passedExams} </p>
+                    <p>Numero bocciature: {failedExams} </p>
+                    <p>Numero Lodi: {honors} </p>
                 </div>
             </div>
         </div>

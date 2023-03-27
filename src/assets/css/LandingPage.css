@@ -1,18 +1,49 @@
 body {
-    background-color:#F2EDDB;
+  background-color: #F2EDDB;
 }
 
-.landingPage{
+
+.landingPage {
   background-color: transparent;
-  width: 450px;
-  height: 554px;
   display: flex;
-  place-content: center;
-  place-items: center;
-  align-items: center;
+  flex-direction: column;
+  flex-wrap: nowrap;
   justify-content: center;
+  align-items: center;
+  align-content: center;
   overflow: hidden;
   border-radius: 20px;
-  flex-direction: row;
-  margin: 2em;
+}
+
+.buttonLanding {
+  position: absolute;
+  bottom: 35%;
+  font-size: 1.5em;
+  padding: 1em 3.3em;
+  transform: perspective(200px) rotateX(15deg);
+  color: white;
+  border: none;
+  border-radius: 5px;
+  background: linear-gradient(0deg, #c4302f 0%, #c4302f 100%);
+  box-shadow: rgba(196, 48, 47, 0.2) 0px 40px 29px 0px;
+  will-change: transform;
+  transition: all 0.3s;
+  border-bottom: 5px solid #9c2121;
+}
+
+.buttonLanding:hover {
+  transform: perspective(180px) rotateX(30deg) translateY(2px);
+}
+
+.buttonLanding:active {
+  transform: perspective(170px) rotateX(36deg) translateY(5px);
+}
+.link{
+  text-decoration: none;
+  color: white;
+}
+img {
+  background-color: transparent;
+  height: 400px;
+  width: 400px;
 }

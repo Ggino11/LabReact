@@ -52,7 +52,7 @@ function Home() {
 
     // Controllo se il nome esiste già nella lista esami
     const examName = exam.examName.trim().toLowerCase();
-    const existingExam = examList.find(item => item.examName.trim().toLowerCase() === examName);
+    const existingExam = examList.find(exam => exam.examName.trim().toLowerCase() === examName);
     if (existingExam) {
       alert('Esame già presente nella lista!');
       return;
@@ -111,7 +111,6 @@ function Home() {
     localStorage.removeItem("examList")
   }
 
-  {/*fine configurazione stati */ }
 
   return (
     <div className="Home">
