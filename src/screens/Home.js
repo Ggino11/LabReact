@@ -9,7 +9,7 @@ import { useState, useEffect } from 'react'; //importo per utilizzare gli stati
 import Cruscotto from '../funcComponents/Cruscotto';
 
 function Home() {
-
+//stato oggetto esame
   const [state, setState] = useState(
 
     {       // exam diventa un oggetto, io sto dichiarando tutte le variabili state e le imposto vuote perchè poi le prendo da ogni funzione
@@ -32,7 +32,6 @@ function Home() {
 
   //funzioni per settare gli stati del Button
   function getSaveData() {
-    //console.log('esame registrato')
     const { exam, examList } = state;
 
     // Controllo se la data inserita è maggiore del giorno attuale 
@@ -67,7 +66,7 @@ function Home() {
   }
   //funzioni per settare gli stati delle inputBox
   function getNameExam(nameExam) {
-    console.log('esame inserito', nameExam)
+    //console.log('esame inserito', nameExam)
     setState({
       ...state,
       exam: {
@@ -91,27 +90,25 @@ function Home() {
 
 
   function getDate(dateExam) {
-   
-      setState({
-        ...state,
-        exam: {
-          ...state.exam,
-          examDate: dateExam
-        }
-      })
-  }
-  function deleteExam() {
-    setState(
-      {
-        ...state,
-        examList: []
+
+    setState({
+      ...state,
+      exam: {
+        ...state.exam,
+        examDate: dateExam
       }
-    )
-
-    localStorage.removeItem("examList")
+    })
   }
+  function deleteExam(index) {
+    const examList = [...state.examList]; // crea una copia dell'array
+    examList.splice(index, 1); // rimuove l'elemento corrispondente all'indice
+    setState({
+      ...state,
+      examList: examList // sostituisce l'array originale con quello aggiornato
+    });
 
-
+    localStorage.setItem("examList", JSON.stringify(examList)); // aggiorna il localStorage
+  }
   return (
     <div className="Home">
       <Header />
@@ -120,7 +117,7 @@ function Home() {
         <Card
           label={"Aggiungi un'esame al libretto"}
           functionButton={getSaveData}
-          functionButton2={deleteExam}
+          /* functionButton2={deleteExam} */
           functionFirstInput={getNameExam}
           functionSecondInput={getValueVote}
           functionThirdInput={getDate}
@@ -129,7 +126,8 @@ function Home() {
         />
 
       </div>
-
+      {/* controllo lunghezza dell'array examList nello stato state è maggiore di zero, ovvero se sono presenti
+        esami se no eveito di stampare a video il componente vuoto  */}
       {state.examList.length > 0 && (
         <section id="lista">
           <div>
@@ -137,14 +135,15 @@ function Home() {
           </div>
           <div className='listaEsami'>
             {state.examList.map((exam, index) => (
-              <Esame key={index} exam={exam} />
+              <Esame key={index} exam={exam}
+                onDelete={() => deleteExam(index)}
+                index={index} />
             ))}
           </div>
         </section>
       )}
 
-      {/* controllo lunghezza dell'array examList nello stato state è maggiore di zero, ovvero se sono presenti
-        esami se no eveito di stampare a video il componente vuoto  */}
+
       <Footer />
     </div>
   );

@@ -1,36 +1,56 @@
 .Button {
-    position: relative;
-    background-color: #c4302f;
-    border-radius: 5px;
-    box-shadow: rgb(121, 18, 55) 0px 4px 0px 0px;
-    padding: 15px;
-    background-repeat: no-repeat;
-    box-sizing: border-box;
-    width: 154px;
-    height: 49px;
-    color: #fff;
-    border: none;
-    font-size: 20px;
-    transition: all .3s ease-in-out;
-    z-index: 1;
-    overflow: hidden;
-    margin: 5px;
-    text-align: center;
-  }
-  
-  .Button::before {
-    content: "";
-    background-color: rgb(209, 63, 63);
-    width: 0;
-    height: 100%;
-    position: absolute;
-    top: 0;
-    left: 0;
-    z-index: -1;
-    transition: width 700ms ease-in-out;
-    display: inline-block;
-  }
-  
-  .Button:hover::before {
-    width: 100%;
-  }
+  position: relative;
+  background-color: #c4302f;
+  border-radius: 5px;
+  box-shadow: rgb(121, 18, 55) 0px 4px 0px 0px;
+  padding: 15px;
+  background-repeat: no-repeat;
+  box-sizing: border-box;
+  width: 154px;
+  height: 49px;
+  color: #fff;
+  border: none;
+  font-size: 20px;
+  transition: all .3s ease-in-out;
+  z-index: 1;
+  overflow: hidden;
+  margin: 5px;
+  text-align: center;
+}
+
+.Button::before {
+  content: "";
+  background-color: rgb(209, 63, 63);
+  width: 0;
+  height: 100%;
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: -1;
+  transition: width 700ms ease-in-out;
+  display: inline-block;
+}
+
+.Button:hover::before {
+  width: 100%;
+}
+
+.deleteButton {
+
+  border: none;
+  outline: none;
+  background-color: #c4302f;
+  padding: 5px 10px;
+  font-size: 0.75em;
+  font-weight: 700;
+  color: #fff;
+  border-radius: 5px;
+  transition: all ease 0.1s;
+  box-shadow: 0px 5px 0px 0px #922020;
+}
+
+
+.deleteButton:active {
+  transform: translateY(5px);
+  box-shadow: 0px 0px 0px 0px #922020;
+}

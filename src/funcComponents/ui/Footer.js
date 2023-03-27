@@ -6,7 +6,6 @@ function Footer() {
     <footer className='Footer'>
       <div>
         <img src={logoFooter} alt="logo Footer" className="footerLogo"></img>
-
       </div>
     </footer>
   );

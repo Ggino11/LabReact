@@ -7,9 +7,11 @@ import Button from './Button';
 
 
 function Esame(props) {
+  //setto una variabile esito che ha come stato iniziale ""
   const [esito, setEsito] = useState("");
 
   function funcEsito() {
+    //in base alle condizioni avrà un valore diverso
     if (props.exam.examVote < 18 || props.exam.examVote <= 0) {
       setEsito("Bocciato");
     } else if (props.exam.examVote == 31) {
@@ -18,11 +20,19 @@ function Esame(props) {
       setEsito("Superato");
     }
   }
+  //useEffect per eseguire la funzione ogni volta che la proprietà di voto esame cambia
   useEffect(() => {
     funcEsito();
   }, [props.exam.examVote]);
+
+  //eliminare componente esame stampato a video
+  function handleDelete() {
+    //esegue la funzione onDelete in base alla posizione nell'array del componente esame 
+    props.onDelete(props.index);
+  }
   return (
     <div className="exam">
+      {/* se l'esame ha esito bocciato il bg è rosso se no verde */}
       <div className='title' style={{ backgroundColor: esito === "Bocciato" ? "#c4302f" : "green" }}>
         <h4>{props.exam.examName}</h4>
       </div>
@@ -30,10 +40,13 @@ function Esame(props) {
       <div className='element'><p>Voto: {props.exam.examVote} </p></div>
       <div className='element'><p>Data: {props.exam.examDate}</p></div>
       <div className='element'><p> {esito}</p></div>
-      {/* <Button 
-      label={'Cancella'}
-      classCss={'Button'}
-      /> */}
+      <div className='element'>
+        <Button
+          label={'Cancella'}
+          classCss={'deleteButton'}
+          callbackButton={handleDelete}
+        />
+      </div>
 
     </div>
   );
@@ -51,7 +64,9 @@ Esame.propTypes = {
     examName: PropTypes.string.isRequired,
     examVote: PropTypes.oneOfType([PropTypes.string, PropTypes.number]).isRequired,
     examDate: PropTypes.string.isRequired
-  }).isRequired
+  }).isRequired,
+  onDelete: PropTypes.func.isRequired,
+  index: PropTypes.number.isRequired
 }
 
 
