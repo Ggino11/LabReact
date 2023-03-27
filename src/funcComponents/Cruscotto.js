@@ -12,6 +12,7 @@ function Cruscotto() {
     let averageVote = 0;
     //per ogni esame che viene inserito aggiorna il cruscotto 
     exams.map(exam => {
+        //condizione ? valore_se_vera : valore_se_falsa
         //solo voti fino al 30 se, 31 contato come 30
         totalVote += parseInt(exam.examVote) === 31 ? 30 : parseInt(exam.examVote);
         honors += exam.examVote == 31 ? 1 : 0;

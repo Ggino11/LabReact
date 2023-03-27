@@ -22,6 +22,7 @@ function Home() {
       examList: localStorage.getItem("examList") == null ? [] : JSON.parse(localStorage.getItem("examList")) //collegamento array con local storage
     }
   )
+  //salva i dati nella memoria locale del browser ogni volta che lo stato di examList cambia
   useEffect(
     () => {
       localStorage.setItem("examList", JSON.stringify(state.examList));
@@ -56,7 +57,7 @@ function Home() {
       alert('Esame già presente nella lista!');
       return;
     }
-    // Se tutte le condizioni sono verificate, aggiungo l'esame alla lista
+    // Se tutte le condizioni sono verificate, aggiungo l'esame alla lista usando setState
     setState(
       {
         ...state,
