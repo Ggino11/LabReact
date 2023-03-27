@@ -117,7 +117,6 @@ function Home() {
         <Card
           label={"Aggiungi un'esame al libretto"}
           functionButton={getSaveData}
-          /* functionButton2={deleteExam} */
           functionFirstInput={getNameExam}
           functionSecondInput={getValueVote}
           functionThirdInput={getDate}
@@ -137,6 +136,7 @@ function Home() {
             {state.examList.map((exam, index) => (
               <Esame key={index} exam={exam}
                 onDelete={() => deleteExam(index)}
+                //tiene traccia dell'indice nella lista esami
                 index={index} />
             ))}
           </div>

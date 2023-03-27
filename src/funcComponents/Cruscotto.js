@@ -41,8 +41,4 @@ function Cruscotto() {
     );
 }
 
-Cruscotto.propTypes = {
-    examList: PropTypes.array.isRequired
-};
-
 export default Cruscotto;

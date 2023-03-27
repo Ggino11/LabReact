@@ -5,9 +5,13 @@ import Button from './Button';
 import InputBox from './InputBox';
 
 function Card(props) {
+    /* const handleSubmit = (event) => {
+        event.preventDefault(); // previene il comportamento predefinito del browser
+        props.functionButton(); // esegue la funzione passata come prop
+      } */
     return (
 
-        <form className="card">
+        <form className="card" /* onSubmit={handleSubmit} */>
             <div>
                 <h3>{props.label}</h3><br></br>
                 <div className='inputContainer'>
