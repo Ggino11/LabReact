@@ -55,14 +55,14 @@ function Home() {
     const existingExam = examList.find(exam => exam.examName.trim().toLowerCase() === examName);
     if (existingExam) {
       alert('Esame già presente nella lista!');
-      return;
+      return; 
     }
     // Se tutte le condizioni sono verificate, aggiungo l'esame alla lista usando setState
     setState(
       {
-        ...state,
-        examList: [...state.examList, state.exam]
-      }
+      ...state,
+      examList: [...state.examList, state.exam]
+    }
     )
   }
   //funzioni per settare gli stati delle inputBox

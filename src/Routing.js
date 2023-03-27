@@ -8,6 +8,7 @@ function Routing() {
         <Routes>
             <Route path="/" element={<LandingPage />} />
             <Route path="/Home" element={<Home />} />
+            <Route path="/LandingPage" element={<LandingPage />} />
         </Routes>
     )
 }
