@@ -47,16 +47,16 @@ function Home() {
     const vote = parseInt(exam.examVote);
     if (isNaN(vote) || vote < 0 || vote > 31) {
       alert('Il voto deve essere un numero tra 0 e 31!');
-      return;
+      return;                                                
     }
 
-    // Controllo se il nome esiste già nella lista esami
+    // Controllo se il nome esiste già nella lista esami 
     const examName = exam.examName.trim().toLowerCase();
     const existingExam = examList.find(exam => exam.examName.trim().toLowerCase() === examName);
     if (existingExam) {
       alert('Esame già presente nella lista!');
-      return; 
-    }
+      return;                                                 
+    }  
     // Se tutte le condizioni sono verificate, aggiungo l'esame alla lista usando setState
     setState(
       {
@@ -138,7 +138,7 @@ function Home() {
               <Esame key={index} exam={exam}
                 onDelete={() => deleteExam(index)}
                 //tiene traccia dell'indice nella lista esami
-                index={index} />
+                 />
             ))}
           </div>
         </section>

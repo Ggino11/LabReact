@@ -65,8 +65,7 @@ Esame.propTypes = {
     examVote: PropTypes.oneOfType([PropTypes.string, PropTypes.number]).isRequired,
     examDate: PropTypes.string.isRequired
   }).isRequired,
-  onDelete: PropTypes.func.isRequired,
-  index: PropTypes.number.isRequired
+  onDelete: PropTypes.func.isRequired
 }
 
 
